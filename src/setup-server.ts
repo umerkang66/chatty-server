@@ -130,7 +130,5 @@ export class ChattyServer {
     return io;
   }
 
-  private socketIOConnections(io: Server) {
-    log.info(io);
-  }
+  private socketIOConnections(io: Server) {}
 }
