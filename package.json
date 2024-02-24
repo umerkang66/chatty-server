@@ -22,13 +22,15 @@
     "@types/hpp": "^0.2.6",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
+    "clipboardy": "^4.0.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "nodemon": "^3.1.0",
-    "clipboardy": "^4.0.0",
     "prettier": "^3.2.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "ttypescript": "^1.5.15",
+    "typescript": "^5.3.3",
+    "typescript-transform-paths": "^3.4.7"
   },
   "dependencies": {
     "@socket.io/redis-adapter": "^8.2.1",

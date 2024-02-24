@@ -1,12 +1,9 @@
 import http from 'http';
 import {
   type Application,
+  type ErrorRequestHandler,
   json,
-  urlencoded,
-  type Request,
-  type Response,
-  type NextFunction,
-  ErrorRequestHandler
+  urlencoded
 } from 'express';
 
 import cors from 'cors';
@@ -22,8 +19,7 @@ import { createAdapter } from '@socket.io/redis-adapter';
 
 import { config } from './config';
 import { appRouter } from './routes';
-
-import { CustomError } from './shared/globals/helpers/error-handler';
+import { CustomError } from '@globals/helpers/error-handler';
 
 const SERVER_PORT = 5000;
 const log = config.createLogger('server');
@@ -80,7 +76,7 @@ export class ChattyServer {
     });
 
     // ERROR HANDLER
-    const errorHandler: ErrorRequestHandler = (error, req, res, next) => {
+    const errorHandler: ErrorRequestHandler = (error, req, res) => {
       if (error instanceof CustomError) {
         return res.status(error.statusCode).send(error.serializeErrors());
       }
@@ -134,5 +130,7 @@ export class ChattyServer {
     return io;
   }
 
-  private socketIOConnections(io: Server) {}
+  private socketIOConnections(io: Server) {
+    log.info(io);
+  }
 }
